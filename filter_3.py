@@ -5,10 +5,8 @@ def apply_deep_filter(input_wav: str):
     if not os.path.exists(input_wav):
         raise FileNotFoundError(f"File is not: {input_wav}")
 
-    # Запускаем deepFilter
     os.system(f"deepFilter ./{input_wav}")
 
-    # Предполагается, что deepFilter создаёт файл: {basename}.enhanced.wav
     base = pathlib.Path(input_wav).stem
     enhanced_name = f"{base}_DeepFilterNet3.wav"
     final_name = f"{base}.wav"
@@ -19,6 +17,6 @@ def apply_deep_filter(input_wav: str):
     else:
         print(f"Not founded {enhanced_name}.")
 
-# Пример использования:
+
 if __name__ == "__main__":
     apply_deep_filter("with_echo.wav")
