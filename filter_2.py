@@ -24,7 +24,8 @@ def get_volume_stats(input_path):
         print("⚠️  Не удалось определить max_volume")
         return 0.0  # по умолчанию — не усиливать
 
-def denoise_audio(input_path, output_path):
+def denoise_audio(input_path):
+    out_path = input_path
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Файл не найден: {input_path}")
 
@@ -71,5 +72,4 @@ def denoise_audio(input_path, output_path):
 # Пример использования
 if __name__ == "__main__":
     input_audio = 'noisy_output.wav'
-    output_audio = 'remake_noisy.wav'
-    denoise_audio(input_audio, output_audio)
+    denoise_audio(input_audio)
